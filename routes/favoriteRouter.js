@@ -51,7 +51,10 @@ favoriteRouter
               err => next(err)
             );
           } else {
-            Favorites.create({ user: req.user._id, dishes: req.body }).then(
+            Favorites.create({
+              user: req.user._id,
+              dishes: req.body
+            }).then(
               favorite => {
                 console.log('Added favorite ', favorite);
                 res.statusCode = 200;
@@ -120,7 +123,7 @@ favoriteRouter
               .then(resp => {
                 res.statusCode = 200;
                 res.setHeader('Content-Type', 'application/json');
-                res.json(favorites);
+                res.json(resp);
               })
               .catch(err => next(err));
           } else {

@@ -44,6 +44,7 @@ exports.verifyAdmin = (req, res, next) => {
   }
 };
 
+//This will return a user object containing username, id and password - Passport installed middleware
 exports.verifyUser = passport.authenticate('jwt', { session: false });
 exports.facebookPassport = passport.use(
   new FacebookTokenStrategy(
